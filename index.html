@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="homeList">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="./homekit.vanilla_tools.js"></script>
+    <script src="./app/data.js"></script>
+</head>
+<body ng-controller="homeListController">
+    <div class="container">
+        <div class="row">
+            <div class="coll-md-12">
+                <h3>Home</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="homeItem" ng-options="home.homeName for home in homes" ng-click="action(this)">
+                            <option value="" disabled>-- select home --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="coll-md-12">
+                <h3>Edit home</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal" ng-model="homeName" ng-submit="onSubmit(this)">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="input-group" ng-class="errorClass">
+                                        <input type="text" ng-model="homeName" ng-value="homeItem.homeName" class="form-control" placeholder="Input the home name"  ng-focus="onFocus()">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit">Save</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./app/app.js"></script>
+</body>
+</html>
